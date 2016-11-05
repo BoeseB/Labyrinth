@@ -28,20 +28,20 @@ namespace B_ESA_4.Forms
 
         public frmLabyrinthGame(string pathToFile)
         {
+            InitializeComponent();
             internalDataLoader = new DataLoader();
             if (!String.IsNullOrWhiteSpace(pathToFile))
             {
-            internalPathToFile = pathToFile;
+                internalPathToFile = pathToFile;
                 setLabyrinth();
             }
 
             renderTimer = new Timer()
             {
-                Interval = ONE_SECOND / FRAMES_PER_SECOND ,
-                Enabled = true                               
+                Interval = ONE_SECOND / FRAMES_PER_SECOND,
+                Enabled = true
             };
             renderTimer.Tick += OnRenderFrame;
-            InitializeComponent();
         }
 
         private void OnRenderFrame(object sender, EventArgs e)
@@ -113,13 +113,11 @@ namespace B_ESA_4.Forms
         private void frmLabyrinthGame_Paint(object sender, PaintEventArgs e)
         {
             interalPlayground?.DrawLab(e.Graphics);
-            this.Height = interalPlayground.Height;
-            this.Width = interalPlayground.Width;
         }
 
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmAutor().Show();
+            new frmAutor().ShowDialog();
         }
 
         private void resetLabyrinthToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,7 +129,15 @@ namespace B_ESA_4.Forms
         {
             var lab = internalDataLoader.LoadDataFromFile(internalPathToFile);
             interalPlayground = new PlayGround(lab);
+            this.Height = interalPlayground.Height;
+            this.Width = interalPlayground.Width;
             internalPawn = new ManualMovingPawn(interalPlayground);
+            automatikToolStripMenuItem.Text = AUTOMATIK;
+        }
+
+        private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmHelp().ShowDialog();
         }
     }
 }

@@ -53,6 +53,12 @@
     <Compile Include="Forms\frmAutor.Designer.cs">
       <DependentUpon>frmAutor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmLabyrinthGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\frmAutor.resx">
       <DependentUpon>frmAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLabyrinthGame.resx">
       <DependentUpon>frmLabyrinthGame.cs</DependentUpon>

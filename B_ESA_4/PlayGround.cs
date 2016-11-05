@@ -24,13 +24,13 @@ namespace B_ESA_4
 
         public PlayGround(string[,] playgroundData)
         {
-            PlaygroundData = playgroundData;            
+            PlaygroundData = playgroundData;
+            SetSize();
         }
 
         public void DrawLab(Graphics internalGraphic)
-        {
-            SetSize();
-            Bitmap newGraph = new Bitmap(1000, 1000);
+        {            
+            Bitmap newGraph = new Bitmap(this.Width, this.Height);
             Graphics bitmapGraph = Graphics.FromImage(newGraph);
             internalGraphic.Clear(Color.LightGray);
             Font drawFont = new Font("Arial", fontSize);
